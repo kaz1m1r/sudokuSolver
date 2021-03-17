@@ -1,8 +1,9 @@
 from Grid import Sudokugrid
+from Solver import Sudokusolver
 
 
 if __name__ == "__main__":
     grid = Sudokugrid()
-    grid.fillGrid()
-    grid.printGrid()
+    solver = Sudokusolver(grid)
+    solver.fillSudokuGrid()
 
