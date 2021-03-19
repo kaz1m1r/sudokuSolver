@@ -19,8 +19,10 @@ class Sudokusolver:
 
         # checks if the grid is filled
         if self.checkSudokuFilled():
-            message = "\nSOLVED SUDOKU!\n"
-            print(colored(message, 'yellow'))
+            message = "\n" \
+                      "   SOLVED SUDOKU!   \n" \
+                      "--------------------\n"
+            print(colored(message, 'red'))
             self.sudoku.printGrid()
             return
 
@@ -52,6 +54,8 @@ class Sudokusolver:
         Check if there are empty spaces in the grid
         :return:
         """
+
+        # traverse all cells in sudoku grid
         if 0 in self.sudoku.grid:
             return False
         return True
@@ -98,9 +102,13 @@ class Sudokusolver:
             # traversing over columns
             for x in range(x_cord, x_cord + 3):
 
-                # checking if a number in the cell is equal to the number
+                # check if the specified number is at the specified coordinate
                 if self.sudoku.grid[y][x] == number:
+
+                    # return False if the number at the specified position equals the number
                     return False
+
+        # return True if the number can be placed in the square
         return True
 
     def insertNumber(self, y: int, x: int, number: int) -> None:
@@ -111,4 +119,6 @@ class Sudokusolver:
         :param number: number that's ought to be inserted to the grid
         :return: None
         """
+
+        # insert the specified number at the given x- and y-coordinate
         self.sudoku.grid[y][x] = number

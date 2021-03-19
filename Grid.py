@@ -26,4 +26,6 @@ class Sudokugrid:
         Print the current grid
         :return: None
         """
+
+        # print the Sudokugrid instance's grid attribute
         print(self.grid)
